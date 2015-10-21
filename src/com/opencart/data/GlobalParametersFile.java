@@ -15,7 +15,6 @@ public class GlobalParametersFile {
 	private String browser;
 	
 	
-
 	public void createGlobalProperties() {
 		// Create a new file
 
@@ -59,8 +58,6 @@ public class GlobalParametersFile {
 		return browser;
 	}
 
-
-
 	@Override
 	public String toString() {
 		
@@ -87,9 +84,6 @@ public class GlobalParametersFile {
 			url = (String) properties.get("url");
 			browser = (String) properties.get("Browser");
 			
-		
-			
-		
 		
 		}
 		catch (IOException e){
