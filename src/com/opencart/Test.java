@@ -1,21 +1,32 @@
 package com.opencart;
 
-import jdk.internal.org.objectweb.asm.tree.IntInsnNode;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-import com.opencart.data.GlobalParametersFile;
-import com.opencart.data.HomePageProperties;
-import com.opencart.database.SqlConnect;
-import com.opencart.testcases.BaseTest;
+import com.opencart.database.UserRegistrationPageData;
+
 
 public class Test {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
 		
 		
+		UserRegistrationPageData udata = new UserRegistrationPageData();
+		
+		
+		ResultSet rs= udata.customer("select * from oc_customer where email = 'h@h.com'");
+		
+		while (rs.next())
+		{
+			String a = rs.getString("email");
+			System.out.println(a);
+		}
+		
+		/*
 			SqlConnect sqc = new SqlConnect();
 		
-			sqc.connect("select * from registration");
+			sqc.connect("select * from registration");*/
 		
 /*			GlobalParametersFile gp = new GlobalParametersFile();
 			

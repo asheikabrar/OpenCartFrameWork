@@ -22,18 +22,21 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.opencart.database.UserRegistrationPageData;
+import com.opencart.objectrepository.UserAccountPage;
 import com.opencart.objectrepository.UserRegistration;
 
 public class UserRegistrationTests extends BaseTest {
 
 	BaseTest basetest = new BaseTest();
 
+
 	@Test
 	public void verifyUserRegistration() throws SQLException {
 
 
-			UserRegistration userregistration = new UserRegistration(
-					basetest.driver);
+			UserRegistration userregistration = new UserRegistration(basetest.driver);
+			UserAccountPage useracctpage = new UserAccountPage(basetest.driver);
 
 			ResultSet rs = userregistration.registerUserData();
 
@@ -42,8 +45,7 @@ public class UserRegistrationTests extends BaseTest {
 
 				assertEquals("Register Account",userregistration.gotoRegistrationPage());
 				userregistration.registerUser();
-				assertTrue(userregistration.isUserRegistered());
-				
+								
 				try {
 					File scrFile = ((TakesScreenshot) basetest.driver)
 							.getScreenshotAs(OutputType.FILE);
@@ -55,6 +57,9 @@ public class UserRegistrationTests extends BaseTest {
 
 					System.out.println("Not able to take screen shot");
 				}
+				
+				assertTrue(userregistration.isUserRegistered());
+				useracctpage.logout();
 				one += 1;
 
 			}

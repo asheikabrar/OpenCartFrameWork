@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -14,6 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.opencart.data.UserRegistrationPageProperties;
 import com.opencart.database.SqlConnect;
+import com.opencart.database.UserRegistrationPageData;
 
 public class UserRegistration {
 
@@ -21,8 +21,12 @@ public class UserRegistration {
 	private WebDriver driver;
 	
 	UserRegistrationPageProperties registrationProperties = new UserRegistrationPageProperties();
-		
+
+
+	
+	ResultSet udata;
 	ResultSet rs;
+	
 	public UserRegistration(WebDriver driver) {
 
 		this.driver = driver;
@@ -243,6 +247,17 @@ public class UserRegistration {
 				
 	}
 	
+	
+	public ResultSet verifyuserregisterData(String email) {
+		UserRegistrationPageData userdata = new UserRegistrationPageData();
+		String sql = "select * from oc_customer where email = '" + email+"'";
+		
+		System.out.println(sql);
+		udata = userdata.customer(sql);
+		return udata;
+				
+	}
+	
 	public String gotoRegistrationPage(){
 		
 		
@@ -275,6 +290,8 @@ public class UserRegistration {
 		getSubscribeoptions().click();
 		getAgree().click();
 		getBtnContinue().click();
+
+		
 		
 	}
 	
@@ -286,16 +303,30 @@ public class UserRegistration {
 		
 		if (expected.equals(actual)){
 			
-			title = true ;
+			verifyuserregisterData(rs.getString("email"));
+			
+			while (udata.next()){
+			
+			if(udata.getString("email").equals(rs.getString("email"))){
+			
 			System.out.println("user"+rs.getString("FirstName").concat(rs.getString("LastName")+" is registered"));
+			System.out.println(rs.getString("email")+ ": is sucessfully registered");
+			title = true ;
+			}
+		}
+						
 		}
 		else 
 		{
 			title = false;
 			System.out.println("User is not Registered the error :"+ alert.getText());
+			System.out.println("actual email "+ udata.getString("email") + "Expected :"+ rs.getString("email"));
 		}
 		return title;
 	}
+
+
+	
 
 
 }
