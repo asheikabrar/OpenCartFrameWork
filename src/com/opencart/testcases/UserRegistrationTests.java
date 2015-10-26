@@ -110,33 +110,3 @@ public class UserRegistrationTests extends BaseTest {
 
 }
 
-/*
- * userregistration.getFirstName().sendKeys(rs.getString("FirstName"));
- * userregistration.getLastName().sendKeys(rs.getString("LastName"));
- * userregistration.getEmail().sendKeys(rs.getString("Email"));
- * userregistration.getTelephone().sendKeys(rs.getString("Telephone"));
- * userregistration.getFax().sendKeys(rs.getString("Fax"));
- * userregistration.getCompany().sendKeys(rs.getString("Company"));
- * userregistration.getAddress1().sendKeys(rs.getString("Address1"));
- * userregistration.getAddress2().sendKeys(rs.getString("Address2"));
- * userregistration.getCity().sendKeys(rs.getString("City"));
- * userregistration.getPostcode().sendKeys(rs.getString("PostCode")); Select
- * countrydropdown = new Select(userregistration.getCountry());
- * 
- * // dropdownbox
- * 
- * countrydropdown.selectByVisibleText(rs.getString("Country"));
- * 
- * // dropdownbox Select regiondropdown = new
- * Select(userregistration.getZone());
- * regiondropdown.selectByVisibleText(rs.getString("Region"));
- * 
- * userregistration.getPassword().sendKeys(rs.getString("Pword"));
- * userregistration.getConfirm() .sendKeys(rs.getString("Pwordconfirm"));
- * 
- * userregistration.getSubscribeoptions().click();
- * 
- * userregistration.getAgree().click();
- */
-// Now you can do whatever you need to do with it, for example copy
-// somewhere
