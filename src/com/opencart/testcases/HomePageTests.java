@@ -21,12 +21,11 @@ public class HomePageTests extends BaseTest{
 	  
 	  HomePage homepage = new HomePage(basetest.driver);
 	  assertEquals(homepage.gotoRegistrationPage(), "Register Account");
-	  
-	  
+	  	  
   }
-  @Test
   
-  public void verifyNavigationtoLoginPage(){
+  @Test
+    public void verifyNavigationtoLoginPage(){
 	  HomePage homepage = new HomePage(basetest.driver);
 	  assertEquals(homepage.gotoLoginPage(), "Account Login");
   }

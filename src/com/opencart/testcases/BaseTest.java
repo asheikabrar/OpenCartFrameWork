@@ -1,5 +1,7 @@
 package com.opencart.testcases;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -32,8 +34,8 @@ public class BaseTest {
 			driver.manage().deleteAllCookies();
 
 			// Implicit wait is declared here
-			WebDriverWait driverwait = new WebDriverWait(driver, 5);
-
+			//WebDriverWait driverwait = new WebDriverWait(driver, 5);
+			driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 			System.out.println(driver.getTitle());
 
 			

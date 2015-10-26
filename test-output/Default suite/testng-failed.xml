@@ -3,13 +3,15 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.opencart.testcases.HomePageTests">
+      <class name="com.opencart.testcases.UserRegistrationTests">
         <methods>
-          <include name="afterTest"/>
           <include name="beforeTest"/>
-          <include name="verifyNaviagationtoRegistrationPage"/>
+          <include name="verifyUserRegistration"/>
+          <include name="takeScreenShotOnFailure"/>
+          <include name="afterTest"/>
+          <include name="beforeMethod"/>
         </methods>
-      </class> <!-- com.opencart.testcases.HomePageTests -->
+      </class> <!-- com.opencart.testcases.UserRegistrationTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
