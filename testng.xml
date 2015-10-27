@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="HomePage" parallel="none">
+ 
+    <test name="ChromeHomePageFunctionalTests">
+      <parameter name="browser" value="chrome" />
+    <classes>
+      <class name="com.opencart.testcases.HomePageTests"/>
+    </classes>
+  </test> <!-- HomePageFunctionalTests -->
+  
+      <test name="FireFoxHomePageFunctionalTests">
+      <parameter name="browser" value="Firefox" />
+    <classes>
+      <class name="com.opencart.testcases.HomePageTests"/>
+    </classes>
+    </test>
+          <test name="safariHomePageFunctionalTests">
+      <parameter name="browser" value="safari" />
+    <classes>
+      <class name="com.opencart.testcases.HomePageTests"/>
+    </classes>
+  </test> <!-- HomePageFunctionalTests -->
+</suite> <!-- HomePage -->

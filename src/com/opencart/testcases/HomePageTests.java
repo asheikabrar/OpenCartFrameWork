@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import junit.framework.Assert;
 
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
@@ -29,11 +30,14 @@ public class HomePageTests extends BaseTest{
 	  HomePage homepage = new HomePage(basetest.driver);
 	  assertEquals(homepage.gotoLoginPage(), "Account Login");
   }
+  
+  
+  @Parameters("browser")
   @BeforeTest
-  public void beforeTest() {
+  public void beforeTest(String browser) {
 	  
 
-	  basetest.Initialise();
+	  basetest.Initialise(browser);
   }
 
   @AfterTest
